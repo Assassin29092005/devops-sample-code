@@ -7,6 +7,12 @@ pipeline {
                 echo 'Creating virtual environment and installing dependencies...'
             }
         }
+        stage('Code Quality') {
+            steps {
+                echo 'Running code quality checks...'
+                sh 'flake8 .'
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Running tests...'
